@@ -39,9 +39,9 @@ const Home = ({authorization}) => {
   
     let history = useHistory();
 
-    const {user,isDoctor} = useUser();
-    const classes = useStyles();
-    
+    // const {user,isDoctor} = useUser();
+    // const classes = useStyles();
+    const isDoctor = false;
     
     
     if(!authorization){
@@ -77,37 +77,6 @@ const Home = ({authorization}) => {
               <Button variant="contained">Visualize my Appointments</Button>
               { isDoctor ? null : <Button variant="contained" onClick={createNewAppointement}>Create a new    Appointment</Button>
               }
-
-              {/* <Paper className={classes.mypaper}>
-                <Box
-                sx={{
-                  marginTop: 2,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}
-                > 
-                  <AddCircleOutlineIcon color="primary"/>
-                  <Typography color="primary" className={classes.mycard}>
-                    Create a new Appointement
-                  </Typography>
-                </Box>
-              </Paper> */}
-              {/* <Paper className={classes.mypaper}>
-                <Box
-                sx={{
-                  marginTop: 2,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}
-                > 
-                  <AddCircleOutlineIcon color="primary"/>
-                  <Typography color="primary" className={classes.mycard}>
-                    Create a new Appointement
-                  </Typography>
-                </Box>
-              </Paper> */}
             </Box>
         </Container>
         </div>
@@ -115,18 +84,3 @@ const Home = ({authorization}) => {
 }
 
 export default Home;
-            // {user.name}
-            // <Button onClick={toggle}>toggle videochat</Button> 
-            // <Container>
-            // {videoCall ? (
-            //                 <CallContextProvider>
-            //                 <VideoChat />
-            //                 <Options>
-            //                     <Notifications />
-            //                 </Options>
-            //                 </CallContextProvider>
-            //               ) : null}
-            // </Container>
-            // <Container className={classes.container}>
-            //   <MarkerMap />
-            // </Container>
