@@ -109,8 +109,9 @@ export const UserContextProvider = ({children}) => {
                 return false;
             })
         }else {
-            
-        }
+            const newPatient = createPatient(user);
+            setUser(newPatient)
+        }   
     }
 
     async function handleLogIn(email,password,redirect){
