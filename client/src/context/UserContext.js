@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 import logIn from '../services/login.service.ts';
 import logOut from '../services/logout.service.ts'
+import createPatient from '../services/createUser.service.ts'
 export const UserContext = createContext();
 
 
@@ -65,10 +66,7 @@ export const UserContextProvider = ({children}) => {
 
     //when we want try a call, we neede to have the callee id (id)
 
-    const createUser = () => {
-
-        console.log('inside user!');
-
+    const createUser = (user) => {
         if(isDoctor){
             console.log('i am a doc!');
             return fetch(`${process.env.REACT_APP_HOST}/doctor`,{
@@ -111,38 +109,7 @@ export const UserContextProvider = ({children}) => {
                 return false;
             })
         }else {
-            console.log("i am a patient!");
-            return fetch(`${process.env.REACT_APP_HOST}/patient`,{
-                method: "POST",
-                credentials: 'include',
-                mode: 'cors',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: userName,
-                    age: userAge,
-                    email: userEmail,
-                    password: password,
-                })
-            })
-            .then(res => {
-                reqStatus.current = res.status;
-                return res.json()
-            })
-            .then(data => {
-                if(reqStatus.current === 200){
-                    console.log(data);
-                    setUser(data)
-                    return true;
-                } else {
-                    return false
-                }
-            })
-            .catch(err => {
-                console.log(err);
-                return false;
-            })
+            
         }
     }
 
