@@ -54,6 +54,7 @@ export const UserContextProvider = ({children}) => {
 
 
     //http request status code
+    // can be removed not necessary to expose this status on the client side in this way
     const  reqStatus = useRef(0);
 
     //context is created so that children components at any point can access to state and inner methods
